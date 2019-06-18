@@ -14,6 +14,9 @@ metadata:
 spec:
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
+{{- if .Value.deployment.strategy}}
+{{ toYaml .Value.deployment.strategy | indent 4 }}
+{{- end }}
   template:
     metadata:
       annotations:
